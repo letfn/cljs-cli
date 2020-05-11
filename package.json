@@ -1,0 +1,11 @@
+{
+  "name": "cljs-cli",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "defn",
+  "license": "MIT",
+  "devDependencies": {
+    "shadow-cljs": "^2.8.83"
+  }
+}

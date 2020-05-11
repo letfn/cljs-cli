@@ -1,34 +1,20 @@
-SHELL := /bin/bash
+main: target/main.js
+	$(MAKE) pkg
 
-.PHONY: docs
+pkg:
+	pkg -t node12-macos-x64 target/main.js
 
-menu:
-	@perl -ne 'printf("%10s: %s\n","$$1","$$2") if m{^([\w+-]+):[^#]+#\s(.+)$$}' Makefile
+clean:
+	rm -rf target .shadow-cljs node_modules main
 
-all: # Run everything except build
-	$(MAKE) fmt
-	$(MAKE) lint
-	$(MAKE) docs
+install:
+	npm install
 
-fmt: # Format drone fmt
-	@echo
-	drone exec --pipeline $@
+release: ./node_modules/.bin/shadow-cljs
+	./node_modules/.bin/shadow-cljs release app
 
-lint: # Run drone lint
-	@echo
-	drone exec --pipeline $@
+node_modules/.bin/shadow-cljs:
+	$(MAKE) install
 
-docs: # Build docs
-	@echo
-	drone exec --pipeline $@
-
-build: # Build container
-	@echo
-	drone exec --pipeline $@
-
-edit:
-	docker-compose -f docker-compose.docs.yml up --quiet-pull
-
-requirements:
-	@echo
-	drone exec --pipeline $@
+target/main.js:
+	$(MAKE) release
