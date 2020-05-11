@@ -44,7 +44,6 @@ steps:
     args: --destination=letfn/cljs-cli
     cache: true
     cache_repo: defn/cache
-    dockerfile: alt/Dockerfile
     password:
       from_secret: docker_password
     repo: letfn/cljs-cli
