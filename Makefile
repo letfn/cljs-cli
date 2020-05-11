@@ -2,7 +2,8 @@ main: target/main.js
 	$(MAKE) pkg
 
 pkg:
-	pkg -t node12-macos-x64 target/main.js
+	@echo
+	drone exec --pipeline $@
 
 clean:
 	rm -rf target .shadow-cljs node_modules main
