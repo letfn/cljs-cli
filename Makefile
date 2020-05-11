@@ -1,9 +1,5 @@
 main: target/main.js
-	$(MAKE) pkg
-
-pkg:
-	@echo
-	drone exec --pipeline $@
+	true
 
 clean:
 	rm -rf target .shadow-cljs node_modules main
