@@ -6,6 +6,10 @@
   "author": "defn",
   "license": "MIT",
   "devDependencies": {
-    "shadow-cljs": "^2.8.83"
+    "shadow-cljs": "^2.8.83",
+    "source-map-support": "^0.5.19"
+  },
+  "dependencies": {
+    "ws": "^7.3.0"
   }
 }
