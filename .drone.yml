@@ -41,13 +41,13 @@ steps:
 - name: kaniko
   image: letfn/drone-kaniko
   settings:
-    args: --destination=letfn/python
+    args: --destination=letfn/cljs-cli
     cache: true
     cache_repo: defn/cache
     dockerfile: alt/Dockerfile
     password:
       from_secret: docker_password
-    repo: letfn/python
+    repo: letfn/cljs-cli
     tag: latest
     username:
       from_secret: docker_username
